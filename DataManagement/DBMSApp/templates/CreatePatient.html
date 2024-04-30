@@ -1,0 +1,114 @@
+{% load static %}
+<html>
+<head>
+<title>DMS</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter First Name");
+	formObj.t1.focus();
+	return false;
+	}
+	if(formObj.t2.value.length==0)
+	{
+	alert("Please Enter Initials");
+	formObj.t2.focus();
+	return false;
+	}
+	if(formObj.t3.value.length==0)
+	{
+	alert("Please Enter Last Name");
+	formObj.t3.focus();
+	return false;
+	}
+	
+	if(formObj.t4.value.length==0)
+	{
+	alert("Please Enter Street");
+	formObj.t4.focus();
+	return false;
+	}
+	if(formObj.t5.value.length==0)
+	{
+	alert("Please Enter city");
+	formObj.t5.focus();
+	return false;
+	}
+	
+	if(formObj.t6.value.length==0)
+	{
+	alert("Please Enter state");
+	formObj.t6.focus();
+	return false;
+	}
+	if(formObj.t7.value.length==0)
+	{
+	alert("Please Enter zip");
+	formObj.t7.focus();
+	return false;
+	}
+	return true;
+	}
+	</script>
+	
+</head>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>Online Data Management System</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+       <ul>      
+      <li><a href="{% url 'CreatePatient' %}">Create New Patients</a></li>
+	  <li><a href="{% url 'Appointment' %}">Create Appointments</a></li>	 
+	  <li><a href="{% url 'UpdatePayment' %}">Update Payment</a></li>	 
+	  <li><a href="{% url 'InsuranceInvoice' %}">Daily Invoices</a></li>	
+	  <li><a href="{% url 'Back' %}">Back</a></li>
+   </ul>
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="915" height="286" alt="" /></div>
+      				<center>
+<form name="f1" method="post" action={% url 'CreatePatientAction' %} onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <h2><b>Create New Patient Screen</b></h2>
+   
+	<font size="" color="red"><center>{{ data|safe }}</center></font>
+						
+						<table align="center" width="30%" >
+			 <tr><td><font size='' color="black">First&nbsp;Name</b></td>
+			 <td><input type="text" name="t1" style="font-family: Comic Sans MS" size="30"></td></tr>
+         
+		  <tr><td><font size='' color="black">MInitials</b></td><td><input name="t2" type="text" size="15"></td></tr>
+
+		  <tr><td><font size='' color="black">Last&nbsp;Name</b></td>
+			 <td><input type="text" name="t3" style="font-family: Comic Sans MS" size="30"></td></tr>
+
+			<tr><td><font size='' color="black">Street</b></td>
+			<td><input name="t4" type="Text" size="40"></td></td></tr>
+
+		    <tr><td><font size='' color="black">City</b></td><td><input name="t5" type="Text" size="40"></td></td></tr>
+
+		   <tr><td><font size='' color="black">State</b></td><td><input type="text" name="t6" style="font-family: Comic Sans MS" size="40"/></td></tr>
+
+          <tr><td><font size='' color="black">Zip&nbsp;Code</b></td><td><input name="t7" type="Text" size="15"></td></td></tr>
+
+		   {{ data1|safe }}
+
+			<tr><td></td><td><input type="submit" value="Submit"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+					
+	</body>
+</html>

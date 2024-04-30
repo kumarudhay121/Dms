@@ -1,0 +1,125 @@
+create database dms;
+use dms;
+
+create table facility(facility_id varchar(30) primary key,
+facility_type varchar(230),
+size varchar(30),
+street varchar(50),
+city varchar(50),
+state varchar(50),
+zip varchar(10),
+office_count varchar(30),
+room_count varchar(30),
+p_code varchar(30),
+description varchar(260));
+
+
+create table employee(SSN varchar(15) primary key,
+emp_id varchar(20),
+first_name varchar(30),
+last_name varchar(30),
+salary double,
+hire_date date,
+job_class varchar(50),
+street varchar(50),
+city varchar(50),
+state varchar(50),
+zip varchar(10),
+job_title varchar(50),
+speciality varchar(50),
+bc_date date,
+certification varchar(40),
+facility_id varchar(30),
+FOREIGN KEY (facility_id) REFERENCES facility(facility_id));
+
+create table insurance(insurance_id int primary key,
+name varchar(60),
+street varchar(30),
+city varchar(30),
+state varchar(30),
+zip varchar(10));
+
+create table patient(patient_id int primary key,
+first_name varchar(40),
+m_init varchar(30),
+last_name varchar(30),
+street varchar(30),
+city varchar(30),
+state varchar(30),
+zip varchar(10),
+SSN varchar(30),
+insurance_id int,
+FOREIGN KEY (insurance_id) REFERENCES insurance(insurance_id),
+FOREIGN KEY (SSN) REFERENCES employee(SSN));
+
+create table make_appointment(SSN varchar(30),
+patient_id int,
+facility_id varchar(30),
+invoice_id int,
+appointment datetime,
+FOREIGN KEY (SSN) REFERENCES employee(SSN),
+FOREIGN KEY (patient_id) REFERENCES patient(patient_id),
+FOREIGN KEY (facility_id) REFERENCES facility(facility_id));
+
+
+create table invoice(invoice_id int primary key,
+invoice_date date,
+insurance_id int,
+FOREIGN KEY (insurance_id) REFERENCES insurance(insurance_id));
+
+create table treatment(SSN varchar(15),
+patient_id int,
+treatment_details varchar(100),
+FOREIGN KEY (SSN) REFERENCES employee(SSN),
+FOREIGN KEY (patient_id) REFERENCES patient(patient_id));
+
+create table invoice_details(invoice_num varchar(30),
+cost double, 
+invoice_id int,
+FOREIGN KEY (invoice_id) REFERENCES invoice(invoice_id));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

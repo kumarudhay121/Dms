@@ -1,0 +1,33 @@
+{% load static %}
+<html>
+<head>
+<title>DMS</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>Online Data Management System</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+         <ul>      
+      <li><a href="{% url 'DayWiseRevenue' %}">Day Wise Revenue</a></li>
+	  <li><a href="{% url 'DateWiseRevenue' %}">Date & Physician Wise Appointment</a></li>	 
+	  <li><a href="{% url 'InsuranceRevenue' %}">Average Insurance Revenue</a></li>	 
+	  <li><a href="{% url 'Back' %}">Back</a></li>
+   </ul>
+                  </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="915" height="286" alt="" /></div>
+
+	
+	<font size="" color="black"><center>{{ data|safe }}</center></font>
+		
+<br/><br/><br/><br/>
+</body>
+</html>

@@ -1,0 +1,12 @@
+
+
+-- query to select daywise revenue:
+select i.invoice_date, sum(id.cost) from invoice_details id, invoice i, make_appointment ma where i.invoice_date = '2024-04-26' and i.invoice_id = id.invoice_id and i.invoice_id = ma.invoice_id;
+
+-- query to select list of appointment for given doctorr SSN and date:
+
+select * from make_appointment where appointment='2024-04-26' and SSN='1234';
+
+-- query to select average insurance revenue between give time period:
+
+select i.insurance_id, avg(id.cost) from invoice_details id, invoice i where i.invoice_id = id.invoice_id and i.invoice_date between '2024-04-20' and '2024-04-27' group by i.insurance_id;

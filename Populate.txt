@@ -1,0 +1,99 @@
+-- inserting or populating FACILITY table:
+
+insert into facility(facility_id, facility_type, size, street, city, state, zip, office_count, room_count, p_code, description) VALUES (1, 'General Consultant & Major surgeries available',
+'9000 X 9000', 'Hamilton Township', 'Hamilton', 'New Jersey', '08501', '1', '300', '1', '24 X 7 Trauma & General Services Available');
+
+insert into facility(facility_id, facility_type, size, street, city, state, zip, office_count, room_count, p_code, description) VALUES (2, 'General Consultant & Diabetic Treatment',
+'7000 X 7000', 'Trenton', 'Hamilton', 'New Jersey', '08611', '2', '200', '1', '24 X 7 Diabetic Care Available');
+
+insert into facility(facility_id, facility_type, size, street, city, state, zip, office_count, room_count, p_code, description) VALUES (3, 'Cardiac Consultant',
+'10000 X 10000', 'South Orange', 'Hamilton', 'New Jersey', '07079', '2', '200', '1', '24 X 7 Cardiac Care Available');
+
+insert into facility(facility_id, facility_type, size, street, city, state, zip, office_count, room_count, p_code, description) VALUES (4, 'Orthopaedic Consultant',
+'5000 X 5000', 'Old Bridge', 'Hamilton', 'New Jersey', '07747', '2', '200', '1', '24 X 7 Orthopaedic Care Available');
+
+insert into facility(facility_id, facility_type, size, street, city, state, zip, office_count, room_count, p_code, description) VALUES (5, 'Neuro Consultant',
+'4000 X 4000', 'Atlantic City', 'Hamilton', 'New Jersey', '08406', '2', '200', '1', '24 X 7 Neuro Care Available');
+
+-- inserting or populating Employee table:
+
+insert into employee(SSN, emp_id, first_name, last_name, salary, hire_date, job_class, street, city, state, zip, job_title, speciality, bc_date, certification,
+ facility_id) VALUES ('1234', '1', 'John', 'Doe', 20000, '2020-01-01', 'Physician', 'Hamilton Township', 'Hamilton', 'New Jersey', '08501', 'General Consultant',
+'General Doctor', '1980-12-01', 'MBBS', 1);
+
+insert into employee(SSN, emp_id, first_name, last_name, salary, hire_date, job_class, street, city, state, zip, job_title, speciality, bc_date, certification,
+ facility_id) VALUES ('1945', '2', 'Robert', 'Williams', 18000, '2022-12-05', 'Physician', 'Trenton', 'Hamilton', 'New Jersey', '08611', 'Cardiac Consultant',
+'Cardiac Doctor', '1982-05-22', 'MBBS, Msc Cardiac', 2);
+
+
+insert into employee(SSN, emp_id, first_name, last_name, salary, hire_date, job_class, street, city, state, zip, job_title, speciality, bc_date, certification,
+ facility_id) VALUES ('2398', '3', 'Alice', 'Sanderson', 22000, '2023-12-05', 'Physician', 'Trenton', 'Hamilton', 'New Jersey', '08611', 'Neuro Consultant',
+'Neuro Doctor', '1979-05-22', 'MBBS, Neuro', 5);
+
+insert into employee(SSN, emp_id, first_name, last_name, salary, hire_date, job_class, street, city, state, zip, job_title, speciality, bc_date, certification,
+ facility_id) VALUES ('1279', '4', 'Dave', 'Bullock', 24000, '2021-12-05', 'Physician', 'Trenton', 'Hamilton', 'New Jersey', '08611', 'Diabetic Consultant',
+'Diabetic Doctor', '1979-05-22', 'MBBS, Diabetic', 2);
+
+insert into employee(SSN, emp_id, first_name, last_name, salary, hire_date, job_class, street, city, state, zip, job_title, speciality, bc_date, certification,
+ facility_id) VALUES ('3278', '5', 'Bob', 'Baker', 17000, '2024-01-05', 'Physician', 'Trenton', 'Hamilton', 'New Jersey', '08611', 'General Consultant',
+'General Doctor', '1982-05-22', 'MBBS, General', 1);
+
+-- inserting or populating Insurance table:
+
+insert into insurance(insurance_id, name, street, city, state, zip) VALUES(1, '4 EVER LIFE INSURANCE COMPANY', 'OAKBROOK TERRACE', 'IL', 'New Jersey', '60181');
+insert into insurance(insurance_id, name, street, city, state, zip) VALUES(2, 'ACADIA INSURANCE COMPANY', 'WESTBROOK', 'ME', 'New Jersey', '04098');
+insert into insurance(insurance_id, name, street, city, state, zip) VALUES(3, 'ACCENDO INSURANCE COMPANY', 'LANSING', 'MI', 'New Jersey', '48901');
+insert into insurance(insurance_id, name, street, city, state, zip) VALUES(4, 'ALAMANCE INSURANCE COMPANY', 'HARTFORD', 'CT', 'New Jersey', '06103');
+insert into insurance(insurance_id, name, street, city, state, zip) VALUES(5, 'ALLIED INSURANCE COMPANY OF AMERICA', 'COLUMBUS', 'OH', 'New Jersey', '43215');
+
+-- inserting or populating Patient table:
+
+insert into patient(patient_id, first_name, m_init, last_name, street, city, state, zip, SSN, insurance_id) VALUES (1, 'Smith', 'SJ', 'Jones', 
+'Trenton', 'Hamilton', 'New Jersey', '08611', '2398', 3);
+
+insert into patient(patient_id, first_name, m_init, last_name, street, city, state, zip, SSN, insurance_id) VALUES (2, 'Charles', 'CD', 'David', 
+'Trenton', 'Hamilton', 'New Jersey', '08611', '3278', 4);
+
+insert into patient(patient_id, first_name, m_init, last_name, street, city, state, zip, SSN, insurance_id) VALUES (3, 'Donald', 'DD', 'Duck', 
+'Trenton', 'Hamilton', 'New Jersey', '08611', '1279', 1);
+
+insert into patient(patient_id, first_name, m_init, last_name, street, city, state, zip, SSN, insurance_id) VALUES (4, 'Richard', 'RM', 'Mark', 
+'Trenton', 'Hamilton', 'New Jersey', '08611', '1945', 1);
+
+insert into patient(patient_id, first_name, m_init, last_name, street, city, state, zip, SSN, insurance_id) VALUES (5, 'Stephen', 'SE', 'ERIC', 
+'Trenton', 'Hamilton', 'New Jersey', '08611', '1945', 1);
+
+-- inserting or populating Appointment table:
+
+insert into make_appointment(SSN, patient_id, facility_id, invoice_id, appointment) VALUES('1234', 1, 1, 1, '2024-04-26');
+insert into make_appointment(SSN, patient_id, facility_id, invoice_id, appointment) VALUES('1945', 3, 2, 2, '2024-04-26');
+insert into make_appointment(SSN, patient_id, facility_id, invoice_id, appointment) VALUES('2398', 4, 5, 3, '2024-04-26');
+insert into make_appointment(SSN, patient_id, facility_id, invoice_id, appointment) VALUES('3278', 2, 1, 4, '2024-04-26');
+insert into make_appointment(SSN, patient_id, facility_id, invoice_id, appointment) VALUES('1234', 5, 5, 5, '2024-04-26');
+
+-- inserting or populating invoice table:
+
+insert into invoice(invoice_id, invoice_date, insurance_id) VALUES(1, '2024-04-26', 3);
+insert into invoice(invoice_id, invoice_date, insurance_id) VALUES(2, '2024-04-26', 1);
+insert into invoice(invoice_id, invoice_date, insurance_id) VALUES(3, '2024-04-26', 1);
+insert into invoice(invoice_id, invoice_date, insurance_id) VALUES(4, '2024-04-26', 4);
+insert into invoice(invoice_id, invoice_date, insurance_id) VALUES(5, '2024-04-26', 1);
+
+-- inserting or populating treatment table:
+
+insert into treatment(SSN, patient_id, treatment_details) VALUES ('2398', 4, 'General Treatment');
+insert into treatment(SSN, patient_id, treatment_details) VALUES ('1234', 1, 'Cardiac Checkup');
+insert into treatment(SSN, patient_id, treatment_details) VALUES ('1945', 3, 'Neuro Checkup');
+insert into treatment(SSN, patient_id, treatment_details) VALUES ('3278', 2, 'General Treatment');
+insert into treatment(SSN, patient_id, treatment_details) VALUES ('1234', 5, 'Ortho Treatment');
+
+-- inserting or populating invoice_details table:
+
+insert into invoice_details(invoice_num, cost, invoice_id) VALUES(1, 3000, 1);
+insert into invoice_details(invoice_num, cost, invoice_id) VALUES(2, 1500, 2);
+insert into invoice_details(invoice_num, cost, invoice_id) VALUES(3, 2500, 3);
+insert into invoice_details(invoice_num, cost, invoice_id) VALUES(4, 4500, 4);
+insert into invoice_details(invoice_num, cost, invoice_id) VALUES(5, 6000, 5);
+
+
+
